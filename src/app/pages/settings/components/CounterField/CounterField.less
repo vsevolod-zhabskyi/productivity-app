@@ -1,0 +1,79 @@
+@import ( reference ) '~@less-helpers-module/_mixins.less';
+@import ( reference ) '~@less-helpers-module/_variables.less';
+
+.input-item {
+  position: relative;
+  font-family: @font-family-secondary, sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+  margin: 0 0 2.4rem 0;
+  padding: 0 1rem;
+
+    .responsive({
+    flex: 0 1 43%;
+    font-size: 0.7rem;
+  });
+  .responsive({
+    flex: 0 1 35%;
+  }, @screen-lg);
+
+  &__field {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0.6rem;
+    flex: 1 1 100%;
+
+    .responsive({
+      max-width: 90%;
+    });
+    .responsive({
+      max-width: 70%;
+    }, @screen-lg)
+  }
+  &__legend {
+    color: @font-color-primary;
+    text-transform: uppercase;
+  }
+  &__controls {
+    .block-underline(0.3rem, @font-color-secondary);
+
+    display: flex;
+    justify-content: space-between;
+    width: 8rem;
+
+    .responsive({
+      max-width: 5rem;
+    });
+  }
+  &__button {
+    color: @font-color-secondary;
+    font-size: 0.5rem;
+
+    &:not(:disabled):hover {
+      color: @font-color-hover;
+    }
+
+    &:disabled {
+      color: darken(@font-color-secondary, 20%);
+      cursor: default;
+    }
+  }
+  &__value {
+    font-family: @font-family-secondary, sans-serif;
+    font-weight: 400;
+    font-size: 0.8rem;
+  }
+
+  &#input-work-time {
+    .mark(@work-time-color);
+  }
+  &#input-work-iteration {
+    .mark(@work-iteration-color);
+  }
+  &#input-short-break {
+    .mark(@short-break-color);
+  }
+  &#input-long-break {
+    .mark(@long-break-color);
+  }
+}

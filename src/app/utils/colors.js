@@ -1,0 +1,13 @@
+const COLOR = {
+  BACKGROUND: '#2A3F50',
+  URGENT: '#F75C4C',
+  HIGH: '#FFA841',
+  MIDDLE: '#FDDC43',
+  LOW: '#1ABC9C',
+  FAILED: '#8DA5B8',
+  Y_GRID: '#345168',
+  AXIS: '#FFFFFF',
+  TOOLTIP_BG: '#DBEAF5',
+};
+
+export default COLOR;

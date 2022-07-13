@@ -1,0 +1,23 @@
+{{#if toRender}}
+  {{#if dailyLength}}
+
+    <section class="todo-list {{#if isDone}}todo-list_done{{/if}} {{#if isDeleteMode}}delete-mode{{/if}}">
+      {{#each tasks}}
+        {{> task task=this}}
+      {{/each}}
+    </section>
+
+  {{else}}
+
+    {{#if isToDo}}
+
+      {{#if isDailyListUsed}}
+        {{> allDailyDone}}
+      {{else}}
+        {{> moveFirstTask}}
+      {{/if}}
+
+    {{/if}}
+
+  {{/if}}
+{{/if}}

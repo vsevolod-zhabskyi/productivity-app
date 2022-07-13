@@ -1,0 +1,56 @@
+@import ( reference ) '~@less-helpers-module/_mixins.less';
+@import ( reference ) '~@less-helpers-module/_variables.less';
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings {
+  &__heading {
+    margin: 0 0 3.2rem 0;
+
+    .responsive({
+      margin: 0 0 1rem;
+    })
+  }
+  &__tabs {
+    align-self: flex-end;
+    margin: 0.3rem 0 0 0;
+
+    .responsive({
+      margin: 0.3rem 0 2.2rem 0;
+      padding: 0;
+      position: absolute;
+      top: 6.4rem;
+    });
+  }
+
+  &__buttons {
+    display: flex;
+    align-self: stretch;
+    margin: 0 0 2.4rem;
+
+    .responsive({
+      align-self: center;
+      justify-self: auto;
+      margin: 0;
+    });
+  }
+
+  &__button {
+    flex: 1 1 100%;
+
+    &:not(:last-child) {
+      margin: 0 1.2rem 0 0;
+    }
+
+    .responsive({
+      flex: 0 0 auto;
+    });
+  }
+}
+
+
+
+

@@ -1,0 +1,19 @@
+<div class="pomodoros__input-item input-item" id="{{id}}">
+  <div class="input-item__field">
+    <h3 class="input-item__legend">{{heading}}</h3>
+    <div class="input-item__controls">
+      <button type="button" class="input-item__button btn-add">
+        <span class="icon-add"></span>
+      </button>
+      <div class="input-item__value">
+        {{value}}
+      </div>
+      <button type="button" class="input-item__button btn-minus">
+        <span class="icon-minus"></span>
+      </button>
+    </div>
+  </div>
+  <p class="input-item__description">
+    Please select a value between {{minValue}} and {{maxValue}} <span class="pomodoros__strong">{{units}}</span>
+  </p>
+</div>

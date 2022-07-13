@@ -1,0 +1,120 @@
+@import ( reference ) '~@less-helpers-module/_mixins.less';
+@import ( reference ) '~@less-helpers-module/_variables.less';
+
+.report {
+  &__loader {
+    height: 100%;
+    position: relative;
+    top: 2rem;
+  }
+
+  &__tabs_interval {
+    margin: 0.4rem 0 10vh;
+    justify-content: center;
+
+    .responsive({
+      margin: 1.6rem 0 14vh;
+    });
+  }
+
+  &__chart {
+    min-height: 18rem;
+    width: 70%;
+    align-self: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    .responsive({
+      min-height: 13rem;
+    });
+  }
+
+  &__table {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+
+    td, th {
+      padding: 0.2rem;
+      border: 1px solid @font-color-secondary;
+    }
+  }
+
+  &__tabs_type {
+    margin-top: 10vh;
+    justify-content: center;
+
+    .responsive({
+      margin-top: 3.2rem;
+    });
+  }
+
+  &__links {
+    position: fixed;
+    top: 48%;
+    left: 0;
+    padding: 0 1rem;
+    font-size: 73px;
+
+    .responsive({
+      padding: 0 2.2rem;
+    });
+
+    .global-list-link {
+      cursor: pointer;
+
+      &:hover {
+        color: @font-color-hover;
+      }
+    }
+  }
+}
+
+.highcharts {
+  &-yaxis-grid .highcharts-grid-line {
+    stroke-width: 1px;
+    stroke: @chart-yaxis-color;
+  }
+
+  &-axis-labels text {
+    color: @chart-label-color !important;
+    fill: @chart-label-color !important;
+  }
+
+  &-xaxis-labels text {
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  &-legend-item {
+    text {
+      color: @chart-legend-color !important;
+      fill: @chart-legend-color !important;
+    }
+
+    rect {
+      x: -2px !important;
+      y: 7px !important;
+    }
+  }
+
+  &-point {
+    stroke-width: 0;
+  }
+
+  &-credits {
+    display: none;
+  }
+}
+
+.chart-tooltip {
+  &__body {
+    color: @tooltip-text-color;
+    font-family: @font-family-primary;
+    font-weight: bold;
+    font-size: 0.6rem;
+    line-height: 0.8rem;
+    padding-right: 1rem;
+  }
+}

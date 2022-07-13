@@ -1,0 +1,24 @@
+<header class="header ">
+  <div class="header__content">
+    <nav class="header__nav">
+      <ul class="header__list">
+          <div class="header__list task-list__buttons {{#if notTaskListPage}}non-visible{{/if}}">
+            <li class="header__list-item btn-add-task non-visible" id="btn-add-task-header" title="Add task"><a><span class="icon-add"></span></a></li>
+            <li class="header__list-item btn-delete-mode trash" id="btn-delete-mode-header" title="Delete task">
+              <a><span class="icon-trash"></span></a>
+              <div class="trash__container hidden">
+                <div class="trash__value">2</div>
+              </div>
+            </li>
+          </div>
+
+        <li class="header__list-item btn-list"><a routerLink="task-list" title="Go to Tasks"><span class="icon-list"></span></a></li>
+        <li class="header__list-item btn-statistics "><a routerLink="reports" title="Go to Reports"><span class="icon-statistics"></span></a></li>
+        <li class="header__list-item btn-settings"><a routerLink="settings" title="Go to Settings"><span class="icon-settings"></span></a></li>
+      </ul>
+    </nav>
+    <div class="header__logo">
+      <img src="/images/logo.svg" alt="Productivity Tracker">
+    </div>
+  </div>
+</header>

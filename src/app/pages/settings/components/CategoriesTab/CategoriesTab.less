@@ -1,0 +1,67 @@
+@import ( reference ) '~@less-helpers-module/_mixins.less';
+@import ( reference ) '~@less-helpers-module/_variables.less';
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 auto;
+
+  &__container {
+    align-self: stretch;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__list {
+    flex-basis: 14.4rem;
+    font-size: 1.1rem;
+    font-family: @font-family-primary;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 2rem;
+
+    .responsive({
+      font-size: 0.8rem;
+    });
+
+    &-item {
+      margin: 0 0 2rem;
+      position: relative;
+      .block-underline(0.6rem, @font-color-secondary);
+
+      .responsive({
+        margin: 0 0 1.6rem;
+        .block-underline(0.4rem, @font-color-secondary);
+      });
+
+      &#category {
+        &-work {
+          .mark(@category-work-color, @left: -1.1rem);
+        }
+        &-education {
+          .mark(@category-education-color, @left: -1.1rem);
+        }
+        &-hobby {
+          .mark(@category-hobby-color, @left: -1.1rem);
+        }
+        &-sport {
+          .mark(@category-sport-color, @left: -1.1rem);
+        }
+        &-other {
+          .mark(@category-other-color, @left: -1.1rem);
+        }
+      }
+    }
+  }
+
+  &__button {
+    align-self: stretch;
+    margin: 0 0 2.4rem;
+
+    .responsive({
+      align-self: center;
+      justify-self: auto;
+    });
+  }
+}
