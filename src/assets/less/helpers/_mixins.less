@@ -1,0 +1,220 @@
+.opacity (@opacity: 0.5) {
+  -webkit-opacity: @opacity;
+  -moz-opacity: @opacity;
+  opacity: @opacity;
+}
+
+.responsive(@rules; @minWidth: @screen-md) {
+  @media only screen and (min-width: @minWidth) {
+    @rules();
+  }
+}
+.landscape(@rules) {
+  @media (orientation: landscape) and (max-width: @screen-md){
+    @rules();
+  }
+}
+
+.fixed-container() {
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  .responsive({
+    max-width: 936px;
+  });
+  .responsive({
+    max-width: 1224px;
+  }, @screen-lg);
+}
+
+.mark(@bc, @top: 0, @left: -0.2rem) {
+  &::before {
+    content: "";
+    position: absolute;
+    top: @top;
+    left: @left;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: @bc;
+  }
+}
+
+.font-hover(@font-color-hover: @font-color-hover) {
+  &:hover {
+    color: @font-color-hover;
+  }
+}
+
+.block-underline(@padding, @color: @font-color-secondary) {
+  padding: 0 0 @padding;
+  border-bottom: 1px solid @color;
+}
+
+.button(@color, @hover, @active) {
+  background-color: @color;
+  &:hover{background-color: @hover;}
+  &:active{background-color: @active;}
+}
+
+.task-priority(@color, @hover) {
+  & {
+    .task__priority {
+      background-color: @color;
+
+      &:hover {
+        .task__priority-value {
+          visibility: hidden;
+        }
+        .icon-timer {
+          display: inline;
+        }
+        .icon-tomato {
+          display: none;
+        }
+        .task__priority-image {
+          background-image: none;
+        }
+      }
+    }
+    &:hover {
+      .task__priority {
+        background-color: @hover;
+      }
+    }
+
+    .task__heading {
+      color: @color;
+      & when (lightness(@color) > 50) {
+        color: darken(@color, 15%);
+      }
+    }
+
+  }
+}
+
+.task-mark(@color, @add-height: 0px) {
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 8px;
+    height: calc(~'100% + @{add-height}');
+    background-color: @color;
+  }
+}
+.category-color-theme(@color, @hover) {
+  .category__header {
+    color: @color;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -4px;
+      top: 2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: @color;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0px;
+      top: 6px;
+      width: 8px;
+      height: 8px;
+      border: 2px solid @background-color;
+      border-radius: 50%;
+      background-color: @color;
+    }
+  }
+  .task {
+    .task-mark(@color, 16px);
+
+  }
+}
+
+.task-delete(@color, @hover) {
+  & {
+    .task__delete {
+      background-color: @color;
+      &:hover {
+        background-color: @hover;
+      }
+    }
+    &.selected {
+      .task__delete {
+        background-color: @color;
+      }
+    }
+  }
+}
+
+.radio-color(@color) {
+  &:hover {
+    .radio__checkmark {
+      background-color: @color;
+    }
+  }
+  & .radio__input:checked ~ .radio__checkmark  {
+    background-color: @color;
+    &::before {
+      content: "";
+      width: 0.4rem;
+      height: 0.4rem;
+      border: 0.1rem solid @background-color;
+      border-radius: 50%;
+      position: absolute;
+      top: 0.2rem;
+      left: 0.2rem;
+    }
+  }
+}
+
+.notification-color-scheme(@color) {
+  .notification__content {
+    background: @color;
+  }
+  .notification__icon {
+    background: mix(@color, #FFF, 75%);
+  }
+}
+
+.tooltip(@text, @top: 36px, @left: -11px, @offset-arrow: 13) {
+  &:hover {
+    &::before {
+      content: @text;
+      cursor: default;
+      position: absolute;
+      z-index: 2;
+      display: inline-block;
+      width: max-content;
+      top: @top;
+      left: @left;
+      background-color: @tooltip-bg;
+      border-radius: 3px;
+      color: @tooltip-text-color;
+      font-family: @font-family-primary;
+      font-weight: 700;
+      font-size: 0.6rem;
+      line-height: 0.8rem;
+      padding: 0.4rem 0.8rem;
+      letter-spacing: 0.2px;
+    }
+    &::after {
+      content: "";
+      display: block;
+      cursor: default;
+      width: 15px;
+      height: 15px;
+      position: absolute;
+      z-index: 2;
+      clip-path: polygon(50% 50%, 10% 100%, 90% 100%);
+      background: @tooltip-bg;
+      top: @top - 12;
+      left: @left + @offset-arrow;
+    }
+  }
+}

@@ -1,0 +1,123 @@
+<div class="modal ">
+  <div class="modal__body">
+    <div class="modal__content">
+      <div class="modal__buttons">
+        <button class="modal__btn" id="btn-close"><span class="icon-close"></span></button>
+        <button class="modal__btn" id="btn-submit"><span class="icon-check"></span></button>
+      </div>
+      <h2 class="modal__heading">
+        {{#if task}}
+          Edit Task
+        {{else}}
+          Add Task
+        {{/if}}
+      </h2>
+      <form class="modal__form from" id="add-task-form">
+
+        <div class="form__item">
+          <h3 class="form__heading">
+            <label for="title" class="form__heading">Title</label>
+          </h3>
+          <input name="title" value="{{task.title}}" id="title" type="text" class="form__input" placeholder="Add title here">
+        </div>
+
+        <div class="form__item">
+          <h3 class="form__heading">
+            <label for="description">Description</label>
+          </h3>
+          <input name="description" value="{{task.description}}" id="description" type="text" class="form__input" placeholder="Add description here">
+        </div>
+
+        <div class="form__item radio">
+          <h3 class="form__heading">Category</h3>
+          <div class="form__radio" id="category">
+            <label class="radio__container radio_work">
+              Work
+              <input name="category" value="0" type="radio" class="radio__input" placeholder="Add description here">
+              <span class="radio__checkmark"></span>
+            </label>
+
+            <label class="radio__container radio_education">
+              Education
+              <input name="category" value="1" type="radio" class="radio__input" placeholder="Add description here">
+              <span class="radio__checkmark"></span>
+            </label>
+
+            <label class="radio__container radio_hobby">
+              Hobby
+              <input name="category" value="2" type="radio" class="radio__input" placeholder="Add description here">
+              <span class="radio__checkmark"></span>
+            </label>
+
+            <label class="radio__container radio_sport">
+              Sport
+              <input name="category" value="3" type="radio" class="radio__input" placeholder="Add description here">
+              <span class="radio__checkmark"></span>
+            </label>
+
+            <label class="radio__container radio_other">
+              Other
+              <input name="category" value="4" type="radio" class="radio__input" placeholder="Add description here">
+              <span class="radio__checkmark"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form__item">
+          <h3 class="form__heading">Deadline</h3>
+          <input
+            class="form__input"
+            name="deadline"
+            {{#if task}}
+              value="{{formatDate task.deadlineDate}}"
+            {{/if}}
+            id="deadline"
+            type="text"
+            placeholder="Add deadline date"
+          >
+        </div>
+
+        <div class="form__item">
+          <h3 class="form__heading">Estimation</h3>
+          <div class="form__estimation" id="estimation">
+            <div class="form__estimation-item" data-value="5"></div>
+            <div class="form__estimation-item" data-value="4"></div>
+            <div class="form__estimation-item" data-value="3"></div>
+            <div class="form__estimation-item" data-value="2"></div>
+            <div class="form__estimation-item" data-value="1"></div>
+          </div>
+        </div>
+
+        <div class="form__item radio">
+          <h3 class="form__heading">Priority</h3>
+          <div class="form__radio" id="priority">
+            <label class="radio__container radio_urgent">
+              Urgent
+              <input name="priority" value="3" type="radio" class="radio__input" placeholder="Add description here">
+              <span class="radio__checkmark"></span>
+            </label>
+
+            <label class="radio__container radio_high">
+              High
+              <input name="priority" value="2" type="radio" class="radio__input" placeholder="Add description here">
+              <span class="radio__checkmark"></span>
+            </label>
+
+            <label class="radio__container radio_middle">
+              Middle
+              <input name="priority" value="1" type="radio" class="radio__input" placeholder="Add description here">
+              <span class="radio__checkmark"></span>
+            </label>
+
+            <label class="radio__container radio_low">
+              Low
+              <input name="priority" value="0" type="radio" class="radio__input" placeholder="Add description here">
+              <span class="radio__checkmark"></span>
+            </label>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

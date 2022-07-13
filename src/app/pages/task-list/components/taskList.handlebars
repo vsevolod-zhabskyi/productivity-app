@@ -1,0 +1,44 @@
+<div class="container task-list " id="task-list">
+  <div class="flex-wrapper ">
+    <h1 class="task-list__heading heading">
+      <p class="heading__text">Daily Task List</p>
+      <button class="heading__btn btn-add-task" id="btn-add-task" title="Add task"><span class="icon-add"></span></button>
+    </h1>
+
+    {{#if tasksLoading}}
+      {{> taskListLoader}}
+    {{/if}}
+
+    {{#if showAddFirst}}
+      <div id="add-first-task"></div>
+    {{/if}}
+
+    {{#if tasks.length}}
+      <div class="task-list__tabs-container">
+        <ul class=" tabs">
+          <li class="tabs-item" data-status="0">To Do</li>
+          <li class="tabs-item" data-status="1">Done</li>
+        </ul>
+        <ul class="tabs {{#if notShowSelectTabs}}hidden{{/if}}">
+          <li class="tabs-item" id="select-all-daily">Select All</li>
+          <li class="tabs-item" id="deselect-all-daily">Deselect All</li>
+        </ul>
+      </div>
+
+      <div id="daily-list"></div>
+
+      <div id="global-list"></div>
+
+      {{#if isToDoEmpty}}
+        {{> todoListEmpty}}
+      {{/if}}
+
+      {{#if isDoneEmpty}}
+        {{> doneListEmpty}}
+      {{/if}}
+
+
+    {{/if}}
+
+  </div>
+</div>

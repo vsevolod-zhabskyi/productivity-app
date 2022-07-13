@@ -1,0 +1,29 @@
+<div class="container">
+
+  <main class="report">
+
+    <h1 class="report__heading heading">Report</h1>
+
+    <div class="flex-wrapper">
+      <ul class="report__tabs_interval tabs">
+        <li class="tabs-item" data-interval="day">Day</li>
+        <li class="tabs-item" data-interval="week">Week</li>
+        <li class="tabs-item" data-interval="month">Month</li>
+      </ul>
+
+
+      <div id="report__chart" class="report__chart">
+        {{> reportLoader}}
+      </div>
+
+      <ul class="report__tabs_type tabs">
+        <li class="tabs-item" data-type="pomodoros">Pomodoros</li>
+        <li class="tabs-item" data-type="tasks">Tasks</li>
+      </ul>
+    </div>
+
+    <div class="report__links">
+      <div class="report__links_task global-list-link" id="go-to-tasks" title="Go to Tasks"><span class="icon-arrow-left"></span></div>
+    </div>
+  </main>
+</div>

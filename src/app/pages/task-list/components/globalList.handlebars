@@ -1,0 +1,54 @@
+{{#if renderGlobal}}
+  <section class="global-list {{#if isDeleteMode}}delete-mode{{/if}}">
+    <div class="global-list__header">
+      <div class="global-list__link active">
+        <p class="global-list__link_text">Global list</p>
+        <span class="global-list__link_icon icon-global-list-arrow-right"></span>
+      </div>
+
+      <ul class="tabs global-list__tabs collapse">
+        <li class="tabs-item" data-priority="null">All</li>
+        <li class="tabs-item" data-priority="3">Urgent</li>
+        <li class="tabs-item" data-priority="2">High</li>
+        <li class="tabs-item" data-priority="1">Middle</li>
+        <li class="tabs-item" data-priority="0">Low</li>
+      </ul>
+    </div>
+
+    <ul class="tabs global-list__tabs collapse {{#if notShowSelectTabs}}non-visible{{/if}}">
+      <li class="tabs-item" id="select-all-global">Select All</li>
+      <li class="tabs-item" id="deselect-all-global">Deselect All</li>
+    </ul>
+
+
+    <div class="global-list__list collapse {{#if isDone}}todo-list_done{{/if}}">
+      {{#if tasks.length}}
+        {{#if tasks.work.length}}
+          {{> categoryWork tasks=tasks.work}}
+        {{/if}}
+
+        {{#if tasks.education.length}}
+          {{> categoryEducation tasks=tasks.education}}
+        {{/if}}
+
+        {{#if tasks.hobby.length}}
+          {{> categoryHobby tasks=tasks.hobby}}
+        {{/if}}
+
+        {{#if tasks.sport.length}}
+          {{> categorySport tasks=tasks.sport}}
+        {{/if}}
+
+        {{#if tasks.other.length}}
+          {{> categoryOther tasks=tasks.other}}
+        {{/if}}
+
+      {{else}}
+        <p class="global-list__empty">
+          No tasks found
+        </p>
+      {{/if}}
+    </div>
+  </section>
+{{/if}}
+

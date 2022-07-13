@@ -1,0 +1,30 @@
+.ui-datepicker {
+  width: 15em;
+  background-color: #e6f4ff;
+}
+.ui-widget-header {
+  background-color: #8da6b9 !important;
+}
+.ui-state-default {
+  background-color: #8da6b9 !important;
+  border-radius: 3px;
+}
+.ui-state-default:hover {
+  background-color: #e6f4ff !important;
+}
+.ui-state-default {
+  background-color: #8da6b9 !important;
+}
+.ui-datepicker-prev:hover, .ui-datepicker-next:hover {
+  background-color: #e6f4ff !important;
+  top: 4px !important;
+}
+.ui-state-highlight {
+  background-color: #FFEE93 !important;
+  border-color: #FFEE93 !important;
+}
+.ui-state-active {
+  background-color: #5c7689 !important;
+  border-color: #5c7689 !important;
+  color: #FFFFFF;
+}

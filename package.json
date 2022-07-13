@@ -1,0 +1,63 @@
+{
+  "name": "pomodoro-app",
+  "author": "Vsevolod Zhabskyi",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server --open",
+    "eslint": "eslint src/**/*.js",
+    "doc": "jsdoc -c jsdoc.json",
+    "test": "jest"
+  },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/tests/test-env.js"
+    ],
+    "testEnvironment": "jsdom",
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.handlebars$": "<rootDir>/handlebarsLoader.js"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!@firebase/database)"
+    ],
+    "globals": {
+      "handlebars-jest": {
+        "helperDirs": [
+          "<rootDir>/src/app"
+        ],
+        "helperExtensions": [
+          ".mjs"
+        ]
+      }
+    },
+    "moduleNameMapper": {
+      "\\.(css|less|sass|scss)$": "<rootDir>/__mocks__/styleMocks.js"
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.8",
+    "@babel/plugin-transform-modules-commonjs": "^7.17.9",
+    "@babel/plugin-transform-runtime": "^7.18.2",
+    "@babel/preset-env": "^7.16.11",
+    "babel-jest": "^28.0.3",
+    "babel-loader": "^8.2.4",
+    "babel-polyfill": "^6.26.0",
+    "copy-webpack-plugin": "^4.5.2",
+    "css-loader": "^1.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^26.4.5",
+    "file-loader": "^1.1.11",
+    "handlebars": "^4.7.7",
+    "babel-preset-es2015": "^6.24.1"
+  },
+  "dependencies": {
+    "firebase": "^9.6.9",
+    "handlebars-template-loader": "^1.0.0",
+    "highcharts": "^10.0.0",
+    "jquery": "^3.6.0",
+    "webpack-jquery-ui": "^2.0.1"
+  }
+}

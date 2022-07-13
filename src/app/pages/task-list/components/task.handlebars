@@ -1,0 +1,31 @@
+<div class="task {{#ifOutdated task}}outdated{{/ifOutdated}}"
+     data-id="{{task.id}}"
+     data-category="{{task.category}}"
+     data-priority="{{task.priority}}"
+>
+  <div class="task__delete btn-select"></div>
+  <div class="task__date">
+    <div class="task__date-value">
+      <div class="task__date-day">{{day task.deadlineDate}}</div>
+      <div class="task__date-month">{{month task.deadlineDate}}</div>
+    </div>
+  </div>
+  <div class="task__main">
+    <div class="task__content">
+      <h3 class="task__heading">{{task.title}}</h3>
+      <p class="task__text">{{task.description}}</p>
+    </div>
+    <div class="task__buttons">
+      <button class="task__btn btn-up" title="Move to Daily List"><span class="icon-arrows-up"></span></button>
+      <button class="task__btn btn-edit" title="Edit task"><span class="icon-edit"></span></button>
+      <button class="task__btn btn-delete" title="Delete task"><span class="icon-trash"></span></button>
+    </div>
+  </div>
+  <div class="task__priority">
+    <div class="task__priority-image">
+      <span class="icon-tomato"></span>
+      <a class="timer-link btn-timer" title="Go to Timer"><span class="icon-timer"></span></a></span>
+      <div class="task__priority-value">{{task.estimation}}</div>
+    </div>
+  </div>
+</div>

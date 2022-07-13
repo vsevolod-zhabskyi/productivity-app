@@ -1,0 +1,38 @@
+@import ( reference ) '~@less-helpers-module/_mixins.less';
+@import ( reference ) '~@less-helpers-module/_variables.less';
+
+.pomodoros {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+
+  &__heading {
+    font-family: @font-family-primary;
+    font-weight: 300;
+    font-size: 1.4rem;
+    margin: 2rem 0 3.2rem 0;
+
+    .responsive({
+      margin: 0 0 4rem;
+      font-size: 1.1rem;
+    })
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 0.8rem 0;
+
+    .responsive({
+      margin: 0;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    });
+  }
+  &__strong {
+    color: @font-color-primary;
+  }
+}

@@ -1,0 +1,85 @@
+@import ( reference ) '~@less-helpers-module/_mixins.less';
+@import ( reference ) '~@less-helpers-module/_variables.less';
+
+.cycle {
+  align-self: stretch;
+  margin: 0 0 3.5rem;
+  flex: 1 1 auto;
+
+  .responsive({
+    margin: 2rem;
+  });
+
+  &__heading {
+    font-family: @font-family-secondary, sans-serif;
+    font-weight: 700;
+    color: @font-color-primary;
+    font-size: 1.3rem;
+    line-height: 1.6rem;
+    margin: 0 0 2.6rem;
+    text-align: center;
+
+    .responsive({
+      font-size: 1rem;
+    });
+  }
+  &__bar {
+    height: 0.5rem;
+    margin: 1.5rem 0;
+    position: relative;
+    display: flex;
+  }
+  .label {
+    font-family: @font-family-secondary;
+    font-weight: 400;
+    position: absolute;
+    width: 0.2rem;
+    height: 0.2rem;
+    border-radius: 50%;
+    background-color: @cycle-label-color;
+
+    &_text {
+      font-size: 0.7rem;
+      position: absolute;
+      width: max-content;
+    }
+    &_top {
+      top: -0.6rem;
+      .label_text {
+        bottom: 0.35rem;
+      }
+    }
+    &_top-right {
+      right: 0;
+      .label_text {
+        right: 0;
+      }
+    }
+    &_top-left {
+      left: 0;
+      .label_text {
+        left: -1px;
+      }
+    }
+    &_bottom {
+      bottom: -0.6rem;
+      .label_text {
+        top: 0.35rem;
+      }
+    }
+  }
+  &__piece {
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    &.work-time {
+      background-color: @work-time-color;
+    }
+    &.short-break {
+      background-color: @short-break-color;
+    }
+    &.long-break {
+      background-color: @long-break-color;
+    }
+  }
+}

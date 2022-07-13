@@ -1,0 +1,73 @@
+<div class="container timer">
+  <div class=" flex-wrapper">
+
+    <div class="timer__info">
+      <h1 class="timer__task-name">{{task.title}}</h1>
+      <p class="timer__task-description">{{task.description}}</p>
+      <div class="timer__pomodoros">
+        <div class="timer__pomodoros-container">
+          {{#if showIncreaseEstimationBtn}}
+            <div class="timer__pomodoros-add" id="increase-estimation-btn"><span class="icon-add"></span></div>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+
+    <div class="circle">
+      <div class="circle__body">
+        <div class="circle__progress">
+          <svg>
+            <circle cx="50%" cy="50%" r="100"></circle>
+          </svg>
+          <div class="circle__content">
+
+              <div class="circle__message"></div>
+
+              <div class="circle__time">
+                <div class="circle__time_top"></div>
+                <div class="circle__time_value">
+
+                </div>
+                <div class="circle__time_bottom"></div>
+              </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{#if task}}
+      <div class="timer__buttons">
+        {{#if isNotStarted}}
+          <button class="timer__btn btn-confirm" id="start-timer-btn">Start</button>
+        {{/if}}
+
+        {{#if state.isWorking}}
+          <button class="timer__btn btn-cancel" id="fail-pomodoro-btn">Fail Pomodoro</button>
+          <button class="timer__btn btn-confirm" id="finish-pomodoro-btn">Finish Pomodoro</button>
+        {{/if}}
+
+        {{#if state.isBreak}}
+
+          <button class="timer__btn btn-confirm {{#if hideStartPomodoroBtn}}hidden{{/if}}"
+                  id="start-pomodoro-btn">Start Pomodoro</button>
+
+          {{#if state.isLastSuccessful}}
+            <button class="timer__btn btn-secondary" id="finish-task-btn">Finish Task</button>
+          {{/if}}
+        {{/if}}
+
+      </div>
+    {{/if}}
+
+    <div class="timer__links">
+      {{#if isNotRunning}}
+        <div class="timer__link global-list-link" id="go-to-tasks" title="Go to Tasks"><span class="icon-arrow-left"></span></div>
+      {{/if}}
+
+      {{#if state.isTaskCompleted}}
+        <div class="timer__link report-link" id="go-to-reports" title="Go to Reports"><span class="icon-arrow-right"></span></div>
+      {{/if}}
+    </div>
+  </div>
+</div>
