@@ -18,6 +18,7 @@ module.exports = {
   entry: ENTRY_PATH,
   output: {
     path: path.resolve(__dirname, 'dist'),
+    // publicPath: IMAGES_PATH,
     filename: 'bundle.js'
   },
   resolve: {
@@ -27,8 +28,16 @@ module.exports = {
     ],
     alias: {
       '@less-helpers-module': path.resolve(__dirname, LESS_HELPERS_PATH), // alias for less helpers
-      '@assets-root-path': path.resolve(__dirname, ASSETS_ROOT_PATH) // alias for assets (use for images & fonts)
-    }
+      '@assets-root-path': path.resolve(__dirname, ASSETS_ROOT_PATH), // alias for assets (use for images & fonts)
+      'handlebars' : 'handlebars/runtime.js'
+    },
+    // fallback: {
+    //   "path": require.resolve("path-browserify"),
+    //   "os": require.resolve("os-browserify/browser"),
+    //   "crypto": require.resolve("crypto-browserify"),
+    //   "stream": require.resolve("stream-browserify"),
+    //   "fs": false
+    // }
   },
   module: {
     rules: [{
@@ -76,12 +85,15 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: IMAGE_LOADER_PATH
+          name: IMAGE_LOADER_PATH,
+          esModule: false
         }
       }]
     }, {
       test: /\.(woff|woff2|eot|ttf|otf)$/,
-      use: ['file-loader']
+      use: [{
+        loader: "file-loader",
+      }],
     }]
   },
   plugins: [
@@ -103,10 +115,15 @@ module.exports = {
     })
   ],
   devServer: {
-    contentBase: './dist',
+    static: './dist',
     port: 3000,
     historyApiFallback: true
   }
+  // devServer: {
+  //   contentBase: './dist',
+  //   port: 3000,
+  //   historyApiFallback: true
+  // }
 };
 
 

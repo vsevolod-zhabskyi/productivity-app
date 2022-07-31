@@ -1,4 +1,4 @@
-import { Handlebars } from 'handlebars-template-loader';
+import * as Handlebars from 'handlebars';
 
 import { TaskStatus } from './utils/TaskStatus';
 
